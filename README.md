@@ -7,6 +7,24 @@
 ## 🏗️ Architecture & Core Subsystems
 
 Dreamwalker AI is structured around high-speed tool execution, local security layers ("The Sanctum"), and cross-platform automation:
+
+```
+                      +-----------------------------+
+                      |     Master Node (main.py)   |
+                      +--------------+--------------+
+                                     |
+         +---------------------------+---------------------------+
+         |                           |                           |
++--------v-------+          +--------v-------+          +--------v-------+
+| Security Layer |          | Execution Engine|          | Voice Subsystem |
+|----------------|          |----------------|          |----------------|
+| privacy_masker |          | pc_tools       |          | voice_stream   |
+| darkhold_shield|          | phone_tools    |          | (State Machine)|
+| ledger (undo)  |          | verifier       |          +----------------+
+| guardian daemon|          +----------------+
++----------------+
+```
+
 ---
 
 ## 🛡️ Security & Integrity ("The Sanctum")
@@ -80,14 +98,18 @@ python -m venv venv
 
 # Install dependencies
 .\venv\Scripts\python.exe -m pip install -r requirements.txt
+```
 
----
+### 3. API Key Configuration
+Create a `.env` file in the root directory:
 
-### Commands to Push README to GitHub
+```env
+GEMINI_API_KEY=your_gemini_api_key_here
+```
 
-After saving the file in VS Code, execute these commands in your PowerShell terminal to push the update:
+### 4. Run Dreamwalker AI
+Launch the master node:
 
 ```powershell
-git add README.md
-git commit -m "Update complete README.md documentation"
-git push origin main
+.\venv\Scripts\python.exe main.py
+```
