@@ -80,3 +80,14 @@ python -m venv venv
 
 # Install dependencies
 .\venv\Scripts\python.exe -m pip install -r requirements.txt
+
+---
+
+### Commands to Push README to GitHub
+
+After saving the file in VS Code, execute these commands in your PowerShell terminal to push the update:
+
+```powershell
+git add README.md
+git commit -m "Update complete README.md documentation"
+git push origin main
